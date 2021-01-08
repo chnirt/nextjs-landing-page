@@ -1,9 +1,19 @@
 // TODO: Need to fetch `posts` (by calling some API endpoint)
 //       before this page can be pre-rendered.
-function Blog({ posts }) {
+type Post = {
+  id: string;
+  title: string;
+};
+
+type Posts = Post[];
+
+type BlogInput = {
+  posts: Posts;
+};
+function Blog({ posts }: BlogInput) {
   return (
     <ul>
-      {posts.map((post) => (
+      {posts.map((post: Post) => (
         <li>{post.title}</li>
       ))}
     </ul>

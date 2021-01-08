@@ -5,8 +5,6 @@ import { MyButton } from "../components";
 
 function About() {
   const [showDialog, setShowDialog] = useState(false);
-  const open = () => setShowDialog(true);
-  const close = () => setShowDialog(false);
   const toggle = () => setShowDialog((prevState) => !prevState);
 
   return (

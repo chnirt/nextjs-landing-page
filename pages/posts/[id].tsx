@@ -1,4 +1,13 @@
-function Post({ post }) {
+type Post = {
+  id: string;
+  title: string;
+};
+
+type PostInput = {
+  post: Post;
+};
+
+function Post({ post }: PostInput) {
   // Render post...
   return (
     <div>
@@ -39,8 +48,16 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
+type BlogParams = {
+  id: string;
+};
+
+type BlogParamsInput = {
+  params: BlogParams;
+};
+
 // This also gets called at build time
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: BlogParamsInput) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   //   const res = await fetch(`https://.../posts/${params.id}`);
